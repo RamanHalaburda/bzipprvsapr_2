@@ -7,28 +7,27 @@ using System.Threading.Tasks;
 namespace bzipprvsapr_2
 {
     class MethodBajesLaplas
-    {/*
-        static public UInt16[] getMinArray(UInt16[,] _m)
+    {
+        static public Double[] getMinArray(UInt16[,] _m, Double[] _q)
         {
-            UInt16[] arr = new UInt16[_m.GetLength(0)];
-
+            Double[] arr = new Double[_m.GetLength(0)];
+            Double sum = 0F;
             for (int i = 0; i < _m.GetLength(0); ++i)
             {
-                UInt16 min = _m[i, 0];
-                for (int j = 1; j < _m.GetLength(1); ++j)
+                sum = 0F;
+                for (int j = 0; j < _m.GetLength(1); ++j)
                 {
-                    if (_m[i, j] < min)
-                        min = _m[i, j];
+                        sum += _m[i, j] * _q[j];
                 }
-                arr[i] = min;
+                arr[i] = sum;
             }
 
             return arr;
         }
 
-        static public UInt16 getMaxValue(UInt16[] _arr)
+        static public Double getMaxValue(Double[] _arr)
         {
-            UInt16 max = _arr[0];
+            Double max = _arr[0];
             for (int i = 1; i < _arr.GetLength(0); ++i)
             {
                 if (_arr[i] > max)
@@ -36,6 +35,6 @@ namespace bzipprvsapr_2
             }
 
             return max;
-        }*/
+        }
     }
 }

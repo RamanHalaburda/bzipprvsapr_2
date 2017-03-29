@@ -52,6 +52,7 @@
     </Compile>
     <Compile Include="MethodBajesLaplas.cs" />
     <Compile Include="MethodMinMax.cs" />
+    <Compile Include="MethodSavage.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
