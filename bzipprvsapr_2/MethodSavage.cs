@@ -16,7 +16,7 @@ namespace bzipprvsapr_2
             UInt16[] maxArr = new UInt16[_m.GetLength(1)];
             for (int i = 0; i < _m.GetLength(1); ++i)
             {
-                UInt16 max = _m[i, 0];
+                UInt16 max = _m[0, i];
                 for (int j = 1; j < _m.GetLength(0); ++j)
                 {
                     if (_m[j, i] > max)
@@ -28,7 +28,7 @@ namespace bzipprvsapr_2
             // get coefficients
             for (int i = 0; i < _m.GetLength(0); ++i)
             {
-                for (int j = 1; j < _m.GetLength(1) - 1; ++j)
+                for (int j = 0; j < _m.GetLength(1); ++j)
                 {
                     arr[i, j] = (Int16)(maxArr[j] - _m[i, j]);
                 }
@@ -38,7 +38,7 @@ namespace bzipprvsapr_2
             for (int i = 0; i < _m.GetLength(0); ++i)
             {
                 Int16 max = arr[i, 0];
-                for (int j = 1; j < _m.GetLength(1) - 1; ++j)
+                for (int j = 1; j < _m.GetLength(1); ++j)
                 {
                     if (arr[i, j] > max)
                         max = arr[i, j];
@@ -49,13 +49,13 @@ namespace bzipprvsapr_2
             return arr;
         }
 
-        static public UInt16 getMaxValue(UInt16[] _arr)
+        static public Int16 getMaxValue(Int16[,] _arr)
         {
-            UInt16 max = _arr[0];
+            Int16 max = _arr[0,_arr.GetLength(1) - 1];
             for (int i = 1; i < _arr.GetLength(0); ++i)
             {
-                if (_arr[i] > max)
-                    max = _arr[i];
+                if (_arr[i, _arr.GetLength(1) - 1] > max)
+                    max = _arr[i, _arr.GetLength(1) - 1];
             }
 
             return max;
